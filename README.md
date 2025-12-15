@@ -19,38 +19,24 @@ The core components of the project are:
 
 ### Prerequisites
 
-You need a C++ compiler (like g++) and `make` installed on your system.
+You need a C++ compiler (like g++).
 
-### Using Make
+### Using Batch file
 
 1.  Navigate to the root directory of the project in your terminal.
-2.  Run `make` to compile the project:
+2.  Run `build.bat` to compile the project:
+
     ```bash
-    make
+    build
     ```
-3.  Run the compiled executable:
-    ```bash
-    make run
-    ```
-    Alternatively, you can run `./project` directly after `make`.
 
 ### Manual Compilation (without Make)
 
 You can also compile the project manually using `g++`:
 ```bash
-g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project -std=c++11 -Wall
+g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project && project.exe
 ```
 After compilation, run the executable:
 ```bash
 ./project
 ```
-
-## GitHub Actions CI/CD
-
-This project is configured with GitHub Actions for Continuous Integration and Continuous Deployment.
-
-The workflow, defined in `.github/workflows/build.yml`, will automatically:
-- Build the project using `make`.
-- Run the compiled executable.
-
-This process is triggered on every `push` to the `main` branch and for every `pull_request` targeting the `main` branch, ensuring that the code always builds and runs successfully.
