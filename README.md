@@ -34,9 +34,16 @@ You need a C++ compiler (like g++).
 
 You can also compile the project manually using `g++`:
 ```bash
-g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project && project.exe
+g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project
 ```
 After compilation, run the executable:
 ```bash
-./project
+project
+```
+
+or 
+
+You can compile and then run in one command
+```bash
+g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project && project.exe
 ```
