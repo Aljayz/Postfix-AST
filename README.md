@@ -21,16 +21,24 @@ The core components of the project are:
 
 You need a C++ compiler (like g++).
 
-### Using Batch file
+### Using Batch file for Windows CMD
 
 1.  Navigate to the root directory of the project in your terminal.
 2.  Run `build.bat` to compile the project:
 
     ```bash
+    build-win
+    ```
+
+### Using Shell for MacOS and Linux environment
+
+1. Navigate to the root directory of the project in your terminal
+2. Run `build.sh` to compile the project:
+    ```bash
     build
     ```
 
-### Manual Compilation (without Make)
+### Manual Compilation (Windows)
 
 You can also compile the project manually using `g++`:
 ```bash
@@ -46,4 +54,52 @@ or
 You can compile and then run in one command
 ```bash
 g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project && project.exe
+```
+
+### Manual Compilation (macOS/Linux)
+
+You can compile the project manually using `g++`:
+```bash
+g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project
+```
+After compilation, run the executable:
+```bash
+./project
+```
+
+or 
+
+You can compile and then run in one command:
+```bash
+g++ -g main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp -o project && ./project
+```
+
+**Alternative using make:**
+You could also create a simple `Makefile`:
+```makefile
+CC = g++
+CFLAGS = -g
+TARGET = project
+SOURCES = main.cpp InfixToPostfix.cpp PostfixToAST.cpp AST_NODE.cpp
+
+all: $(TARGET)
+
+$(TARGET): $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
+
+.PHONY: all run clean
+```
+
+Then use:
+```bash
+make       # To compile
+make run   # To compile and run
+./project  # To run after compilation
+make clean # To remove the executable
 ```
